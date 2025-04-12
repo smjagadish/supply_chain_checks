@@ -1,0 +1,18 @@
+name: Signed attestation
+
+on:
+  workflow_run:
+    workflows: ["Build Java JAR"]
+    types:
+      - completed
+
+jobs:
+  compute-hash:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Attest
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: '${{ github.workspace }}/my-app'
+
