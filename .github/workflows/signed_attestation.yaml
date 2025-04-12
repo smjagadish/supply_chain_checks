@@ -16,7 +16,8 @@ jobs:
         with:
           name: my-app
           path: ./artifact
-
+      - name: list artifact
+        run: ls -l ./artifact
       - name: Attest
         uses: actions/attest-build-provenance@v2
         with:
