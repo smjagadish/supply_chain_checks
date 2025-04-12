@@ -17,7 +17,7 @@ jobs:
         with:
           java-version: '11'
       - name: Cache Maven packages
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
@@ -28,7 +28,7 @@ jobs:
         run: mvn clean package
 
       - name: Upload JAR
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: my-app
           path: target/*.jar
