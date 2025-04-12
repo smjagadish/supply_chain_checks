@@ -25,9 +25,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Change to project directory
-        run: cd supplychain
-
+      - name: Change project directory
+        run: cd supplychain
       - name: Build with Maven
         run: mvn clean package
 
